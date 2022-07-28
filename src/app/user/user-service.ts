@@ -10,8 +10,8 @@ export class UserService {
 
     constructor(private http : HttpClient) { }
 
-    createEndpoint: string = "https://localhost:44389/api/Beneficiary/List";
-    authenticateEndpoint: string = "https://localhost:44389/api/Beneficiary/Create";
+    createEndpoint: string = "https://localhost:44380/User/Create";
+    authenticateEndpoint: string = "https://localhost:44380/User/Authenticate";
 
     create(user: any) {
         this.http.post(this.createEndpoint, user).subscribe((data)=> {
@@ -19,10 +19,12 @@ export class UserService {
         })
       }
 
-      authenticate(user: any) {
-        this.http.post(this.createEndpoint, user).subscribe((data)=> {
+      Username: string = "";
+      Password: string = "";
+      query: string = "?Username=" + this.Username + "&" + "Password" + "=" + this.Password;
+      authenticate(username: string, password: string) {
+        this.http.post(this.authenticateEndpoint + this.query, "").subscribe((data)=> {
           return data;
         })
       }
-    
 }

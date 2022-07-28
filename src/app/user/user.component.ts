@@ -11,6 +11,8 @@ export class UserComponent implements OnInit {
 
   users : User[] = [];
   user : User = {} as User;
+  username: string = "";
+  password: string = "";
 
   constructor(private rs : UserService) { }
 
@@ -25,9 +27,8 @@ export class UserComponent implements OnInit {
   }
 
   authenticateUser(data: any) {
-    this.user.username = data.username;
-    this.user.password = data.password;
-    this.user.role = data.role;
-    this.rs.authenticate(this.user);
+    this.username = data.username;
+    this.password = data.password;
+    this.rs.authenticate(this.username, this.password);
   }
 }
