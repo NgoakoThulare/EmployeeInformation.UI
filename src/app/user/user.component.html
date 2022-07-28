@@ -1,0 +1,25 @@
+<!-- <form #userForm="ngForm" class="form-inline" (ngSubmit)="createUser(userForm.value)">
+    <input type="text" id="username-input" style="width: 50%;" class="form-control mb-2 mr-sm-2" name="username" [(ngModel)]='user.username' placeholder="Username">
+    <input type="password" id="password-input" style="width: 50%;"class="form-control mb-2 mr-sm-2" name="password" [(ngModel)]='user.password' placeholder="Password">
+    <input type="text" id="user-role-input" style="width: 50%;"class="form-control mb-2 mr-sm-2" name="role" [(ngModel)]='user.role' placeholder="Role">
+    <br>
+    <button type="submit" id="create-btn" class="btn btn-success" name="create">Create</button>
+</form> -->
+
+<form #userForm="ngForm" class="user-form" (ngSubmit)="createUser(userForm.value)">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput name="username" [(ngModel)]='user.username'>
+    </mat-form-field>
+  
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput name="password" [(ngModel)]='user.password'>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Role</mat-label>
+        <input matInput name="role" [(ngModel)]='user.role'>
+      </mat-form-field>
+  </form>
+
